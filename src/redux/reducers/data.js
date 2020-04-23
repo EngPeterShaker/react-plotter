@@ -6,13 +6,17 @@ const initalState = {
 };
 
 const getAllData = (state, action) => {
-  console.log('action', action)
-  return {...state ,
-    coloumns : action.payload};
+  return { ...state, coloumns: action.payload };
 };
 
 const getColoumnData = (state, action) => {
-  return state;
+  return {
+    ...state,
+    data: {
+      dimension: action.payload[0],
+      measure: action.payload[1]
+    }
+  };
 };
 
 export default (state = initalState, action) => {
