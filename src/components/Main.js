@@ -1,26 +1,30 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Dnd from "./Dnd";
-
-const useStyles = makeStyles((theme) => ({
+import Chart from "./Chart";
+const useStyles = makeStyles(theme => ({
   root: {
-    flexGrow: 1,
+    flexGrow: 1
   },
   paper: {
     padding: theme.spacing(2),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
-  },
+    textAlign: "center",
+    color: theme.palette.text.secondary
+  }
 }));
 
 const Main = () => {
   const classes = useStyles();
+  const [coords, setCoords] = useState({ dimension: "", measure: "" });
+
+  const changeCoords = ({ name, function: fn = "" }) => {
+    setCoords({ ...coords, [fn]: name });
+  };
 
   return (
     <div>
-      <Dnd />
+      <Dnd changeCoords={changeCoords} />
+      <Chart coords={coords} />
     </div>
   );
 };
