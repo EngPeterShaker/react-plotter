@@ -44,4 +44,14 @@
   margin: 1em;
   padding: 1em;
   min-height: 50px;
+  border : 1px dashed #ccc;
+}
+.Simple-cell{
+
+  width: 3em;
+  cursor: pointer ;
+  .Cell-simple{
+    width: 3em;
+    cursor: pointer ;
+  }
 }
